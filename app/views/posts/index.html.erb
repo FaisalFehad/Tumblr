@@ -1,0 +1,10 @@
+<h1>Posts</h1>
+
+<% @posts.each do |post| %>
+  <h1> <%= dom_id(post) %>
+    <%= link_to post.title, post %>
+  </h1><br>
+  <p>
+    <%= post.content %>
+  </p><br>
+<% end %>
