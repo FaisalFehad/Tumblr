@@ -5,6 +5,9 @@
     <%= link_to post.title, post %>
   </h1><br>
   <p>
-    <%= post.content %>
+    <%= truncate(post.content, length:65) %>
   </p><br>
+  <p>
+    Submited <%= time_ago_in_words(post.created_at) %>.
+  </p>
 <% end %>
