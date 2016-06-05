@@ -32,6 +32,6 @@ char = 'a'
      fill_in 'Content', with: "a"
      click_button "Create Post"
      visit '/posts/'
-     page.should_not have_content (char *4)
+     expect(page).not_to have_content (char *4)
     end
 end
