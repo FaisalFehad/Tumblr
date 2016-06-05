@@ -1,13 +1,16 @@
 <h1>Posts</h1>
 
+<%= link_to 'New Post', new_post_path(@post) %>
+
 <% @posts.each do |post| %>
-  <h1> <% dom_id(post) %>
-    <%= link_to post.title, post %>
-  </h1><br>
+  <tr id="<%= dom_id(post) %>" ><br>
   <p>
-    <%= truncate(post.content, length:65) %>
+    <td><%= truncate(post.content, length:65) %></td>
   </p><br>
   <p>
-    Submited <%= time_ago_in_words(post.created_at) %>.
+    <td>Submited <%= time_ago_in_words(post.created_at) %>.</td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td> |
+    <td><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} %></td>
   </p>
+</tr>
 <% end %>
