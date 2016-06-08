@@ -3,7 +3,7 @@
 <%= link_to 'New Post', new_post_path(@post) %>
 
 <% @posts.each do |post| %>
-  <tr id="<%= dom_id(post) %>" ><br>
+   <h2><%= link_to post.title, post %></h2>
   <p>
     <td><%= truncate(post.content, length:65) %></td>
   </p><br>
