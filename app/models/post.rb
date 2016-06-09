@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
    has_many :comments, dependent: :destroy
-   validates :title, presence: true, length: { in: 2..20 }
+   validates :title, presence: true, length: {in: 2..40 }
    validates :content, presence: true, length: {in: 3..140}
 end
