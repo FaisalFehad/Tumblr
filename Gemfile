@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'time_ago_in_words', '~> 0.1.1'
+gem 'devise', '~> 3.4.0'
 
 group :development, :test do
   gem 'byebug'
