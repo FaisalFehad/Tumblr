@@ -1,17 +1,19 @@
 require 'rails_helper'
 
-feature 'leave a note on post' do
-  let(:new_posts_form) {NewPostsForm.new}
+require_relative '../support/new_comments_form.rb'
+require_relative '../support/new_posts_form.rb'
 
+RSpec.feature  "creating comments", :type => :feature do
+  let(:new_posts_form) {NewPostsForm.new}
+  let(:new_comments_form) {NewCommentsForm.new}
   scenario 'Create a post and comment on it' do
     #create a post
-    new_posts_form.visit_root_page.fill_in_with(
-    title: 'foobaz'
+    new_posts_form.visit_new_post.fill_in_with(
+    title: 'fOobaz'
     ).submit
-    # find the post and view it and leave a comment in the post
-    visit('/')
-    click_link 'foobaz'
-    fill_in 'User name', with: 'Fobar'
-    fill_in 'Comment Content', with: 'Some text'
+    # opens the post
+    new_comments_form.open_a_post
+    # the content title was spesifed as $post_content_params in NewPostsForm.fill_in_with
+    expect(page).to have_text $post_content_params
   end
 end

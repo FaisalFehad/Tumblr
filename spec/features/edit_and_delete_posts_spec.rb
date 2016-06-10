@@ -6,7 +6,7 @@ feature 'Create and edit posts' do
   let(:new_posts_form) {NewPostsForm.new}
 
   scenario 'Create and Edit a post' do
-    new_posts_form.visit_root_page.fill_in_with(
+    new_posts_form.visit_new_post.fill_in_with(
     title: 'foobaz'
     ).submit
 
@@ -14,10 +14,8 @@ feature 'Create and edit posts' do
   end
 
   scenario 'Create and Delete a post' do
-    new_posts_form.visit_root_page.fill_in_with(
+    new_posts_form.visit_new_post.fill_in_with(
     title: 'foobaz'
     ).submit
   end
-
-
 end
