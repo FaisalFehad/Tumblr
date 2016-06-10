@@ -1,16 +1,24 @@
 <h1>Posts</h1>
 
-<%= link_to 'New Post', new_post_path(@post) %>
+<% if user_signed_in? %>
+  <%= link_to 'New Post', new_post_path(@post) %>
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Sign in', new_user_session_path %>
+  <%= link_to 'Sign up', new_user_registration_path %>
+<% end %>
 
 <% @posts.each do |post| %>
    <h2><%= link_to post.title, post %></h2>
   <p>
     <td><%= truncate(post.content, length:65) %></td>
   </p><br>
-  <p>
-    <td>Submited <%= time_ago_in_words(post.created_at) %>.</td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td> |
-    <td><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} %></td>
-  </p>
+  <p><td>Submited <%= time_ago_in_words(post.created_at) %>.</p></td>
+    <p>
+    <% if user_signed_in? %>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td> |
+      <td><%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} %></td>
+    <% end %>
+    </p>
 </tr>
 <% end %>
