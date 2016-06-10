@@ -13,10 +13,10 @@ feature 'Save valid posts only' do
 
 char = 'a'
 
-  it "Doesn't save posts with more than 21 characters " do
-    attempt_to_post_with title: (char *22)
+  it "Doesn't save posts with more than 25 characters " do
+    attempt_to_post_with title: (char *26)
     attempt_to_post_with content: (char *15)
-    expect(page).not_to have_content (char *22)
+    expect(page).not_to have_content (char *26)
   end
 
   it "Does save posts with vaild title and content" do
