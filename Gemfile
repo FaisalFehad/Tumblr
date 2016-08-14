@@ -13,6 +13,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'time_ago_in_words', '~> 0.1.1'
 gem 'devise', '~> 3.4.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'devise-bootstrap-views'
+
 
 group :development, :test do
   gem 'byebug'
