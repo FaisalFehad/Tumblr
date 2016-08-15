@@ -7,7 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% elsif alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
+
 <%= render 'shared/nav_bar.html.erb' %>
 <%= yield %>
 
