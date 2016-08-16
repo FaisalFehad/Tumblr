@@ -1,13 +1,9 @@
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <p>
-    <%= f.label :name, "User name" %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :content, "Comment Content" %>
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <%= bootstrap_form_for([@post, @post.comments.build]) do |f| %>
+        <%= f.text_field :name, label: "User name" %>
+        <%= f.text_area :content, label: "Notes" %>
+        <%= f.submit %>
+    <% end %>
+  </div>
+</div>

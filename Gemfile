@@ -14,6 +14,7 @@ gem 'time_ago_in_words', '~> 0.1.1'
 gem 'devise', '~> 3.4.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'devise-bootstrap-views'
+gem 'bootstrap_form', '~> 2.4'
 
 
 group :development, :test do
