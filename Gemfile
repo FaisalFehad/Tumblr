@@ -17,6 +17,7 @@ gem 'devise-bootstrap-views'
 gem 'bootstrap_form', '~> 2.4'
 gem 'friendly_id', '~> 5.1'
 gem 'better_errors', '~> 2.1', '>= 2.1.1'
+gem 'paperclip', '~> 5.0'
 
 
 group :development, :test do

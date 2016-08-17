@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-ms-12">
+        <%= image_tag @post.image.url(:post) %>
         <h1><%= @post.title %></h1>
         <br>
         <p>

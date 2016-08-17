@@ -2,8 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-ms-12">
+
         <% @posts.each do |post| %>
-           <h2><%= link_to post.title, post %></h2>
+          <h2><%= link_to post.title, post %></h2>
+          <%= image_tag post.image.url(:thumb) %>
+
           <p><%= truncate(post.content, length:65) %></p><br>
           <p>Submited <%= time_ago_in_words(post.created_at) %>.</td>
             <p>
