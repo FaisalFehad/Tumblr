@@ -16,39 +16,50 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       redirect_to @post
+      flash[:notice] = "The post has been created."
     else
       render 'new'
+      flash[:alert] = "Error has occurred. Please make sure that your post
+                                                    is valid and try again."
     end
   end
 
   def show
-    @post = Post.friendly.find(params[:id])
+    find_post
   end
 
   def edit
-    @post = Post.friendly.find(params[:id])
+    find_post
   end
 
   def update
-    @post = Post.friendly.find(params[:id])
-
+    find_post
     if @post.update(params[:post].permit(:title, :content))
       redirect_to @post
+      flash[:notice] = "The post has been updated."
     else
       render 'edit'
+      show_post_error
     end
   end
 
   def destroy
-    @post = Post.friendly.find(params[:id])
-
+    find_post
     @post.destroy
-
     redirect_to root_path
+    flash[:notice] = "The post has been deleted."
   end
 
-
   private
+
+  def show_post_error
+    flash[:alert] = "Error has occurred. Please validate the data you submitting
+                                                                  and try again."
+  end
+
+  def find_post
+    @post = Post.friendly.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :content)

@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     @post = Post.friendly.find(params[:post_id])
     @comments = @post.comments.find(params[:id])
     @comments.destroy
+    flash[:notice] = "The comment has been deleted."
 
     redirect_to post_path(@post)
   end
