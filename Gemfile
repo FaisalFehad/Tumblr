@@ -16,6 +16,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'devise-bootstrap-views'
 gem 'bootstrap_form', '~> 2.4'
 gem 'friendly_id', '~> 5.1'
+gem 'better_errors', '~> 2.1', '>= 2.1.1'
 
 
 group :development, :test do
