@@ -2,13 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-ms-12">
-        <%= image_tag @post.image.url(:post) %>
+        <% if @post.image? %>
+          <%= image_tag @post.image.url(:post) %>
+        <% end %>
+        <br>
         <h1><%= @post.title %></h1>
         <br>
-        <p>
-          <%= @post.content %>
-          Submited <%= time_ago_in_words(@post.created_at) %>.
-        </p>
+        <p><%= @post.content %></p>
+        <p><small> Submited <%= time_ago_in_words(@post.created_at) %>.<small></p>
+        <br>
         <br>
         <% if user_signed_in? %>
           <%= link_to 'Edit', edit_post_path(@post) %>
@@ -18,8 +20,8 @@
         <hr>
         <p><%= @post.comments.count %> comments</p>
         <br>
-          <p><small><%= render @post.comments %></small></p>
-          <%= render "comments/form" %>
+        <p><small><%= render @post.comments %></small></p>
+        <%= render "comments/form" %>
         </div>
       </div>
     </div>
