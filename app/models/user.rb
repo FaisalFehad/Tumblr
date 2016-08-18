@@ -3,4 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  # paperclip profile image
+  has_attached_file :avatar, styles: { thumb: "100x100>" },
+                                      default_url: "/images/:style/missing.png"
+  validates_attachment :avatar, content_type: { content_type: ["image/jpg","image/jpeg",
+                                                              "image/png", "image/gif"] }
 end
