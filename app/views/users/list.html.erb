@@ -1,0 +1,6 @@
+<h1> Users </h1>
+
+<% @users.each do |user| %>
+  <p><%=link_to user.username, "/users/#{user.id}" %></p>
+  <%= image_tag user.avatar.url(:thumb) %><hr>
+<% end %>
