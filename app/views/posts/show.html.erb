@@ -1,28 +1,23 @@
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-ms-12">
-        <% if @post.image? %>
-          <%= image_tag @post.image.url(:post) %>
-        <% end %>
-        <br>
-        <h1><%= @post.title %></h1>
-        <br>
-        <p><%= @post.content %></p>
-        <p><small> Submited <%= time_ago_in_words(@post.created_at) %>.<small></p>
-        <br>
-        <br>
-        <% if user_signed_in? %>
-          <%= link_to 'Edit', edit_post_path(@post) %>
-          <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
-        <% end %>
-        <br>
-        <hr>
-        <p><%= @post.comments.count %> comments</p>
-        <br>
-        <p><small><%= render @post.comments %></small></p>
-        <%= render "comments/form" %>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<div class="col-md-12 col-ms-12">
+  <% if @post.image? %>
+    <%= image_tag @post.image.url(:post) %>
+  <% end %>
+  <br>
+  <h1><%= @post.title %></h1>
+  <br>
+  <p><%= @post.content %></p>
+  <p><small> Submited <%= time_ago_in_words(@post.created_at) %>.<small></p>
+  <br>
+  <br>
+  <% if user_signed_in? %>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+    <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
+  <br>
+  <hr>
+  <p><%= @post.comments.count %> comments</p>
+  <br>
+  <p><small><%= render @post.comments %></small></p>
+  <%= render "comments/form" %>
+</div>
