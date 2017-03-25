@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   # associations
    has_many :comments, dependent: :destroy
+   belongs_to :user
+
 
   # validations
    validates :title,   presence: true, length: { in: 2..25 }

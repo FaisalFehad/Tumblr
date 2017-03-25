@@ -9,11 +9,13 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
+    puts "This is it#{@post}"
+
     if @post.save
       redirect_to @post
       flash[:notice] = "The post has been created."
@@ -62,6 +64,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :image)
+    params.require(:post).permit(:title, :content, :image, :userid)
   end
 end

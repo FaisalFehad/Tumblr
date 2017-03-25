@@ -1,14 +1,19 @@
 
 <div class="col-md-12 col-ms-12">
   <% @posts.each do |post| %>
-    <h2><%= link_to post.title, post %></h2>
+    <h3><%= link_to post.title, post %></h3>
     <% if post.image? %>
       <%= image_tag post.image.url(:thumb) %>
     <% end %>
     <hr>
     <p><%= truncate(post.content, length:65) %></p>
+
+    <strong>
+      Submited <%= time_ago_in_words(post.created_at)%> ago
+      By <%= link_to "#{User.find(post.user_id).username}", "users/#{post.user_id}" %>
+    </strong>
     <br>
-    <p> Submited <%= time_ago_in_words(post.created_at) %>.</p>
+
     <% if user_signed_in? %>
       <%= link_to 'Edit', edit_post_path(post) %> |
       <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Are you sure?" } %>
