@@ -2,30 +2,36 @@
   <% @posts.each do |post| %>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">
+        <h6 class="panel-title">
           <div class="raw">
-          <%= image_tag User.find(post.user_id).avatar.url(:tiny) %>
-          <%= link_to "#{User.find(post.user_id).username}", "users/#{post.user_id}" %>
-          <br>
-          <%= link_to post.title, post %>
-        </h3>
+            <div class="col-md-offset-1">
+              <%= link_to (image_tag User.find(post.user_id).avatar.url(:tiny)),
+              "#{"users/#{post.user_id}"}" %>
+              <%= link_to "#{User.find(post.user_id).username}",
+              "users/#{post.user_id}" %>
+              <br>
+            </div>
+          </div>
+        </h6>
         </div>
-        <div class="panel-body">
-          <% if post.image? %>
-            <%= image_tag post.image.url(:thumb) %>
-          <% end %>
-          <hr>
-          <p><%= truncate(post.content, length:65) %></p>
-          <strong>Submited <%= time_ago_in_words(post.created_at)%> ago</strong>
-          <br>
-          <% if user_signed_in? %>
-            <%= link_to 'Edit', edit_post_path(post) %> |
-            <%= link_to 'Delete', post_path(post), method: :delete,
-             data: { confirm: "Are you sure?" } %>
-          <% end %>
-          </p>
-          </tr>
-      </div>
+
+        <div class="raw">
+          <div class="col-md-offset-1">
+            <div class="panel-body">
+              <% if post.image? %>
+                <%= link_to (image_tag post.image.url(:thumb)), post %>
+              <% end %>
+              <br>
+              <br>
+              <p><small><%= truncate(post.content, length:65) %></small></p>
+                <% if user_signed_in? %>
+                  <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_post_path(post), class: 'btn btn-default' %>
+                  <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, post_path(post), method: :delete, data: { confirm: "The post will be deleted. Click ok to continue." }, class: 'btn btn-default' %>
+                <% end %>
+                </p>
+          </div>
+          </div>
+        </div>
     </div>
   <% end %>
 </div>
