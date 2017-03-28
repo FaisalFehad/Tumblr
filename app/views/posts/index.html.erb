@@ -25,8 +25,12 @@
               <br>
               <p><small><%= truncate(post.content, length:65) %></small></p>
                 <% if user_signed_in? %>
-                  <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_post_path(post), class: 'btn btn-default' %>
-                  <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, post_path(post), method: :delete, data: { confirm: "The post will be deleted. Click ok to continue." }, class: 'btn btn-default' %>
+                  <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe,
+                   edit_post_path(post), class: 'btn btn-default' %>
+                  <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe,
+                   post_path(post), method: :delete,
+                    data: { confirm: "The post will be deleted. Click ok to continue." },
+                     class: 'btn btn-default' %>
                 <% end %>
                 </p>
           </div>

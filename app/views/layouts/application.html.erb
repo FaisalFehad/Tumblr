@@ -8,21 +8,19 @@
 </head>
 <body>
 
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% elsif alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
+
 <%= render 'shared/nav_bar.html.erb' %>
 
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% elsif alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
 
 <div class="wrapper">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-ms-12">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
   </div>
 </div>
 
