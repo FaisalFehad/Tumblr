@@ -14,7 +14,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to '<i class="glyphicon glyphicon-home"></i>'.html_safe, "/users/#{current_user.id}", class: 'btn btn-default' %></li>
+        <% if current_user %>
+          <li><%= link_to '<i class="glyphicon glyphicon-home"></i>'.html_safe, "/users/#{current_user.id}", class: 'btn btn-default' %></li>
+        <% end %>
         <li><%= link_to '<i class="glyphicon glyphicon glyphicon-globe"></i>'.html_safe, users_path, class: 'btn btn-default' %></li>
         <li><%= link_to '<i class="glyphicon glyphicon-comment"></i>'.html_safe, root_path, class: 'btn btn-default' %></li>
         <li><%= link_to '<i class="glyphicon glyphicon-flash"></i>'.html_safe, root_path, class: 'btn btn-default' %></li>

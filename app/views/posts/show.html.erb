@@ -3,11 +3,9 @@
     <h3 class "panel-title">
       <%= link_to (image_tag User.find(@post.user_id).avatar.url(:tiny)),"#{"users/#{@post.user_id}"}" %>
       <%= link_to "#{User.find(@post.user_id).username}","users/#{@post.user_id}" %>
-
       <%= @post.title %>
       <p><small><%= time_ago_in_words(@post.created_at) %> ago.<small></p>
     </div>
-
     <div class="raw">
       <div class="container">
         <div class="cal-md-2">
