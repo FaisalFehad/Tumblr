@@ -1,6 +1,17 @@
-<h1> Users </h1>
+<h3>Trending blogs</h3>
 
 <% @users.each do |user| %>
-  <p><%=link_to user.username, "/users/#{user.id}" %></p>
-  <%= image_tag user.avatar.url(:thumb) %><hr>
-<% end %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%=link_to user.username, "/users/#{user.id}" %></div>
+        <div class="raw">
+          <div class="container">
+            <div class="cal-md-2">
+              <%= link_to (image_tag user.avatar.url(:thumb)), "/users/#{user.id}" %><hr>
+              <%= link_to "Follow", "#", class: "btn btn-default" %><br><br>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
