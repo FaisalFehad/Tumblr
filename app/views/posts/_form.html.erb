@@ -5,7 +5,7 @@
     </h3>
   </div>
   <div class="panel-body">
-    <%= bootstrap_form_for @post, url: posts_path do |f| %>
+    <%= bootstrap_form_for @post, url: post_path(@post) do |f| %>
       <%= f.file_field :image, as: :file %>
       <%= f.text_field :title %>
       <%= f.text_area :content %>
