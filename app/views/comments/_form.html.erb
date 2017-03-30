@@ -1,9 +1,5 @@
-<div class="container">
-  <div class="row">
-    <%= bootstrap_form_for([@post, @post.comments.build]) do |f| %>
-        <%= f.text_field :name, label: "User name" %>
-        <%= f.text_area :content, label: "Notes" %>
-        <%= f.submit %>
-    <% end %>
-  </div>
-</div>
+<%= bootstrap_form_for([@post, @post.comments.build]) do |f| %>
+  <%= f.text_field :name, label: "User name" %>
+  <%= f.text_area :content, label: "Notes" %>
+  <%= f.submit %>
+<% end %>

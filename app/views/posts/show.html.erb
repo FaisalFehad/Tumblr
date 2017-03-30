@@ -1,23 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class "panel-title">
+      <%= link_to (image_tag User.find(@post.user_id).avatar.url(:tiny)),"#{"users/#{@post.user_id}"}" %>
+      <%= link_to "#{User.find(@post.user_id).username}","users/#{@post.user_id}" %>
 
-<div class="col-md-12 col-ms-12">
-  <% if @post.image? %>
-    <%= image_tag @post.image.url(:post) %>
-  <% end %>
-  <br>
-  <h1><%= @post.title %></h1>
-  <br>
-  <p><%= @post.content %></p>
-  <p><small> Submited <%= time_ago_in_words(@post.created_at) %>.<small></p>
-  <br>
-  <br>
-  <% if user_signed_in? %>
-    <%= link_to 'Edit', edit_post_path(@post) %>
-    <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
-  <% end %>
-  <br>
-  <hr>
-  <p><%= @post.comments.count %> comments</p>
-  <br>
-  <p><small><%= render @post.comments %></small></p>
-  <%= render "comments/form" %>
+      <%= @post.title %>
+      <p><small><%= time_ago_in_words(@post.created_at) %> ago.<small></p>
+    </div>
+
+    <div class="raw">
+      <div class="container">
+        <div class="cal-md-2">
+            <% if @post.image? %>
+              <%= image_tag @post.image.url(:post), class: "img-responsive img-rounded center-block" %>
+            <% end %>
+          <br>
+          <br>
+          <p><%= @post.content %></p>
+          <br>
+          <br>
+          <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_post_path(@post) %>
+            <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+          <% end %>
+          <br>
+          <hr>
+          <p><%= @post.comments.count %> comments</p>
+          <br>
+          <p><small><%= render @post.comments %></small></p>
+          <%= render "comments/form" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
