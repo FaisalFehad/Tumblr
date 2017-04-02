@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.3.3'
 
 gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 5.0'
@@ -18,6 +18,7 @@ gem 'bootstrap_form', '~> 2.4'
 gem 'friendly_id', '~> 5.1'
 gem 'better_errors', '~> 2.1', '>= 2.1.1'
 gem 'paperclip', '~> 5.0'
+gem 'pg'
 
 
 group :development, :test do
