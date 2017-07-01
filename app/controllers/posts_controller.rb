@@ -14,8 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    puts "This is it#{@post}"
-
+    
     if @post.save
       redirect_to @post
       flash[:notice] = "The post has been created."
